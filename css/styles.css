@@ -1,0 +1,387 @@
+/* Variables */
+:root {
+    --primary: #9C27B0;
+    --darkPrimary: #891190;
+    --secondary: #FFCE00;
+    --darkSecondary: rgb (233, 287, 2);
+    --white: #FFF;
+    --black: #000;
+
+    /* Se verifica la fuente en caso de que el navegador no la posee buscará la cursiva */
+    --primaryFont: 'Staatliches', cursive;
+}
+
+html {
+    /* Especificar que el elemento incluirá automáticamente el espacio ocupado por el relleno y el borde. Que una caja considere el ancho, el padding y el border. Si se utilizase el modelo de caja por defecto (content-box): clientWidth = width + padding + border no se sabría sino calculando el tamaño exacto de la caja, por ello mejor serí reemplazarlo por border-box: clientWidth = width - padding - border */
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--primary);
+    /* Agregarle tamaño al contenido de la pantalla, así se equipara el cambio */
+    font-size: 1.6rem;
+    /* Espaciado entre líneas */
+    line-height: 1.5;
+}
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white);
+}
+
+a {
+    /* Quita los efectos que tiene por default la etiqueta */
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+.container {
+    max-width: 120rem;
+    /* Sin márgenes arriba y abajo, pero a los lados automático con respecto al body */
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    color: var(--secondary);
+    font-family: var(--primaryFont);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+
+/* En el nombramiento de los elementos de css se utiliza la metodología BEM (Block Element Modifier), es una metodología de nomenclatura y estructuración de clases en CSS. BEM proporciona un enfoque claro y escalable para organizar el código CSS en proyectos grandes y complejos (Legibilidad, reusabilidad, escalabilidad y mantenimiento).
+Ejm:
+
+- Estilos del bloque
+.boton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+}
+
+- Estilos del elemento
+.boton__icono {
+    margin-right: 5px;
+}
+
+- Estilos del modificador
+.boton--grande {
+    font-size: 18px;
+}
+
+.boton__icono--rojo {
+    color: #e74c3c;
+}
+*/
+
+/* Header */
+
+.header {
+    /* Que tome el tamaño específico de la ruta de imagen, se le quita el displau en bloque */
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    /* Márgenes: Arriba Derecha Abajo Izquierda */
+    /* margin: 3rem 0 3rem 0; */
+    margin: 3rem 0;
+}
+
+/* Navigation */
+.navigation {
+    background-color: var(--darkPrimary);
+    padding: 1rem 0;
+    /* Que el elemento se adecue más facilmente a los cambios, que se flexible e independiente de lo vertical u horizontal que puede ser la página */
+    display: flex;
+    /* Que se encuentre en el centro */
+    justify-content: center;
+    /* Espaciado entre los elementos del bloque */
+    gap: 2rem;
+}
+
+.navigation__link {
+    font-family: var(--primaryFont);
+    color: var(--white);
+    font-size: 3rem;
+}
+
+/* Que cambie de color al pasar el cursor y que cuente además la página en la que se encuentra */
+.navigation__link--active,
+.navigation__link:hover {
+    color: var(--secondary);
+}
+
+/* Diviendo los productos en una grilla */
+
+/* Grid */
+
+/* En este caso se utiliza la metodología Mobile First, que es donde primero se buscar el estilo para el celular */
+.grid {
+    display: grid;
+    /* Se se divida en dos columnas */
+    grid-template-columns: repeat(2, 1fr);
+    /* Separación entre cada elemento de la grilla */
+    /* column-gap: 2rem;
+    row-gap: 2rem; */
+    gap: 2rem;
+}
+
+/* Cuando el tamaño sea mayor, cuando este en formato de escritorio */
+@media (width >=768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Products */
+.product {
+    background-color: var(--darkPrimary);
+    padding: 1rem;
+    border: 0.1rem solid var(--secondary);
+    border-radius: 1rem;
+}
+
+.product__name {
+    font-size: 4rem;
+}
+
+.product__price {
+    font-size: 2.8rem;
+    color: var(--secondary);
+}
+
+.product__name,
+.product__price {
+    font-family: var(--primaryFont);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Footer */
+
+.footer {
+    background-color: var(--darkPrimary);
+    /* Espaciado de adentro hacia afuera */
+    padding: 1rem 0;
+    /* Separación de márgen arriba */
+    margin-top: 2rem;
+}
+
+.footer__text {
+    /* Tipo de fuente */
+    font-family: var(--primaryFont);
+    /* Centrando el texto */
+    text-align: center;
+    /* Tamaño de la letra */
+    font-size: 2.2rem;
+}
+
+.graph {
+    /* Altura mínima */
+    min-height: 30rem;
+    /* Que el tamaño ocupe todo el espacio del contenedor */
+    background-size: cover;
+    /* Que la imagen no se repita al cambiar su tamaño */
+    background-repeat: no-repeat;
+    /* La imagen se encuentra entre las columnas 1 y 3 */
+    grid-column: 1 / 3;
+}
+
+.tshirt--graph {
+    /* La imagen se encuentra en las filas 2 y 3 */
+    grid-row: 2 / 3;
+    /* Ya que nos encontramos en la carpeta styles, con doble punto retrocedemos uno, luego ingresamos a la carpeta imágenes ... */
+    background-image: url("../img/grafico1.jpg");
+}
+
+.node--graph {
+    /* La imagen se encuentra en las filas 8 y 9, como se está utilizando la metodología Mobile First, se prioriza cómo se vería en un celular */
+    grid-row: 8 / 9;
+    /* La imagen se encuentra entre las columnas */
+    background-image: url("../img/grafico2.jpg");
+}
+
+/* Cuando se presente como una aplicación de escritorio */
+@media (width >=768px) {
+    .node--graph {
+        grid-row: 5 / 6;
+        /* Que cuando se presente 3 columnas sea de 2 a 4 */
+        grid-column: 2 / 4;
+    }
+}
+
+/* Nosotros */
+
+.us {
+    display: grid;
+    /* Que el contenido se mantenga en dos filas a pesar del cambio de tamaño de la pantalla */
+    grid-template-rows: repeat(2, auto);
+}
+
+.us__image {
+    /* Que se encuentre en la primera fila cuando se tenga la aplicación en modo celular */
+    grid-row: 1 / 2;
+}
+
+.us__content p {
+    /* Justificando el texto */
+    text-align: justify;
+    /* Dándole pading al texto cuando esté como dispositivo móvil*/
+    padding: 1rem;
+}
+
+/* Para un dispositivo más grande */
+@media (width >=768px) {
+
+    .us {
+        /* Separación entre columnas */
+        column-gap: 2rem;
+        /* Que se definan dos columnas al ser la pantalla más grande */
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .us__content p {
+        padding: 0%;
+    }
+
+    .us__image {
+        /* Cuando la imagen sea más grande se encuentre al lado del párrafo  */
+        grid-column: 2 / 3;
+    }
+
+}
+
+/* Bloques */
+
+.blocks {
+    display: grid;
+    /* Espacios entre cada elemento de la cuadrícula */
+    gap: 2rem;
+    /* Que la cuadrícula se divida en 2 columnas por fila */
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.block {
+    /* Alineando todo el contenido al centro */
+    text-align: center;
+    /* Que tenga cierto pading */
+    padding: 2rem;
+}
+
+.block__title {
+    margin: 0;
+}
+
+@media (width >=768px) {
+    .blocks {
+        /* Al momento de estar la pantalla en modo escritorio que se distribuya en 3 columnas */
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Página del Producto */
+
+@media (width >= 768px) {
+    .t-shirt {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 2rem;
+    }
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+}
+
+.form__field {
+    /* border-color: var(--darkPrimary);
+    border-width: 1rem;
+    border-style: solid; */
+    /* Es lo mismo que arriba, acá se define diferentes propiedades del borde */
+    border: 1rem solid var(--darkPrimary);
+    background-color: transparent;
+    color: var(--white);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    /* Se le quita la apariencia predeterminada del selector que el navegador le brinda, se le quita la flecha  */
+    appearance: none;
+}
+
+.form__field::placeholder {
+    color: var(--white);
+    /* Para Firefox */
+    opacity: 1;
+}
+
+.form__field option {
+    background-color: var(--primary);
+}
+
+.form__submit {
+    background-color: var(--secondary);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--primaryFont);
+    padding: 2rem;
+    grid-column: 1 / 3;
+    /* Transición de cambio de color del botón en un tiempo corto (0.3s) y que el cambio (ease) sea suave y gradual (lento al comienzo, rápido en el medio, lento al final). */
+    transition: background-color 0.3s ease;
+    /* Habilitando el keyframe enlargeButton, especificando el tiempo que dura la animación y las veces que quiere que se repita */
+    animation: enlargeButton 3s infinite;
+}
+
+.form__submit:hover {
+    cursor: pointer;
+    background-color: yellow;
+    /* Que la animación se cancele al pasar el botón */
+    animation: none;
+}
+
+/* Se crea un fotograma clave que permiten definir momentos específicos de una animación. */
+@keyframes enlargeButton {
+    /* En el momento inicial */
+    0% {
+        /* Que no se modifique la escala del tamaño */
+        transform: scale(1);
+    }
+    /* En el medio */
+    50% {
+        /* Que crezca un diez por ciento con respecto al tamaño inicial */
+        transform: scale(1.1);
+    }
+    /* En el momento final */
+    100% {
+        /* Que regrese a su tamaño original */
+        transform: scale(1);
+    }
+}

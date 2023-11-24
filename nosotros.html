@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Store</title>
+
+
+    <!-- Realizando la precarga, cuando se carga una página se cargan tres cosas: El HTML, el CSS y el JavaScript, cuando haces un reload haces que cierto css se cargue a la misma vez que el HTML -->
+    <link rel="preload" href="css/normalize.css" as="style">
+    <link rel="preload" href="css/styles.css" as="style">
+
+    <!-- Linkeando el HTML con el normalize, estandarizando sin depender del navegador -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Linkeando el HTML con el CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Se importa cierta grupo de fonts de Google, se seleccionan un grupo y luego se copia el link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html"><img class="header__logo" src="img/logo.png" alt="imagen-logo"></a>
+    </header>
+
+    <nav class="navigation">
+        <!-- Se indica el a que se encuentra activo en la página -->
+        <a class="navigation__link" href="index.html">Tienda</a>
+        <a class="navigation__link navigation__link--active" href="nosotros.html">Nosotros</a>
+    </nav>
+
+    <main class="container">
+        <h1>Nosotros</h1>
+        <!-- Para colocar un div con clase, se puede poner .nombreDeClase -->
+        <div class="us">
+            <div class="us__content">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores voluptatem deleniti necessitatibus inventore laboriosam, a nihil modi, porro dolorum dolor consequatur libero impedit soluta, voluptate doloribus cum quasi esse enim.
+                Eius consequatur id earum ut mollitia pariatur sapiente eaque hic eum veritatis beatae possimus nam ab, neque iusto quaerat, veniam sunt? Inventore voluptas velit nemo adipisci. Provident libero minus quasi?
+                </p>
+                <p>
+                Laboriosam sint rem, odit tempora repellendus, non soluta officiis, recusandae laborum voluptate omnis aut iure magni tenetur? Corrupti minus, itaque nesciunt maxime, eveniet exercitationem rerum sed perspiciatis, repellendus quisquam id!
+                Corrupti sunt sint iusto veniam voluptatibus possimus culpa in laborum velit! Commodi ducimus numquam tempora?</p>
+            </div>
+            <img class="us__image" src="img/nosotros.jpg" alt="Image about us">
+        </div>
+    </main>
+
+    <div class="container">
+        <h2>¿Por qué comprar con nosotros?</h2>
+        <div class="blocks">
+            <div class="block">
+                <img class="block__image" src="img/icono_1.png" alt="why buy">
+                <h3 class="block__title">El mejor precio</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non rerum placeat inventore ipsum recusandae</p>
+            </div>
+
+            <div class="block">
+                <img class="block__image" src="img/icono_2.png" alt="why buy">
+                <h3 class="block__title">El mejor precio</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non rerum placeat inventore ipsum recusandae</p>
+            </div>
+
+            <div class="block">
+                <img class="block__image" src="img/icono_3.png" alt="why buy">
+                <h3 class="block__title">El mejor precio</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non rerum placeat inventore ipsum recusandae</p>
+            </div>
+
+            <div class="block">
+                <img class="block__image" src="img/icono_4.png" alt="why buy">
+                <h3 class="block__title">El mejor precio</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non rerum placeat inventore ipsum recusandae</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer__text">Front End Store - Todos los derechos reservados 2023.</p>
+    </footer>
+
+</body>
+
+</html>

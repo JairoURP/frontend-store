@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Store</title>
+
+
+    <!-- Realizando la precarga, cuando se carga una página se cargan tres cosas: El HTML, el CSS y el JavaScript, cuando haces un reload haces que cierto css se cargue a la misma vez que el HTML -->
+    <link rel="preload" href="css/normalize.css" as="style">
+    <link rel="preload" href="css/styles.css" as="style">
+
+    <!-- Linkeando el HTML con el normalize, estandarizando sin depender del navegador -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Linkeando el HTML con el CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Se importa cierta grupo de fonts de Google, se seleccionan un grupo y luego se copia el link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html"><img class="header__logo" src="img/logo.png" alt="imagen-logo"></a>
+    </header>
+
+    <nav class="navigation">
+        <!-- Se indica el a que se encuentra activo en la página -->
+        <a class="navigation__link navigation__link--active" href="index.html">Tienda</a>
+        <a class="navigation__link" href="nosotros.html">Nosotros</a>
+    </nav>
+
+    <main class="container">
+        <h1>React JS</h1>
+        <div class="t-shirt">
+            <img class="t-shirt__image" src="img/3.jpg" alt="T-shrit image">
+            <div class="t-shirt__content">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates doloribus vero natus laboriosam velit provident aperiam hic debitis odio exercitationem ullam illo aut, rerum at et nam saepe molestias maxime?</p>
+
+                <form class="form">
+                    <!-- Es un field porque permite la selección o inserción de datos -->
+                    <select class="form__field" name="size">
+                        <!-- Que no se pueda seleccionar, sólo se mostrará como selección por defecto -->
+                        <option disabled selected> --Seleccionar Talla-- </option>
+                        <option value="S"> Chica </option>    
+                        <option value="M"> Mediana </option>
+                        <option value="L"> Grande </option>
+                    </select>
+
+                    <input class="form__field" type="number" placeholder="Cantidad" min="1" step="1">
+
+                    <!-- Se comportará como un botón -->
+                    <input class="form__submit" type="submit" value="Agregar al carrito">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">Front End Store - Todos los derechos reservados 2023.</p>
+    </footer>
+
+</body>
+
+</html>
